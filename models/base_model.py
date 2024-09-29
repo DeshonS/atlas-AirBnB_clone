@@ -4,10 +4,17 @@ import uuid
 from datetime import datetime
 
 class BaseModel():
-    def __init__(self):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+    def __init__(self, *args, **kwargs):
+        if kwargs:
+            for key, val in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    setattr(self, key, datetime.fromisoformat(val))
+                elif key != '__class__':
+                    setattr(self, key, val)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
         
     def __str__(self):
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
