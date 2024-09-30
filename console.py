@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     Command processor
     """
 
-    prompt = "(hbnb)"
+    prompt = "(hbnb)" #prompt text
     l_classes = ['BaseModel', 'User',]
 
     l_c = ['count']
