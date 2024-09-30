@@ -29,3 +29,6 @@ class FileStorage:
                     cls = val['__class__']
                     if cls == 'BaseModel':
                         self.__objects[key] = BaseModel(**val)
+                    if cls == 'User':
+                        from models.user import User
+                        self.__objects[key] = User(**val)
