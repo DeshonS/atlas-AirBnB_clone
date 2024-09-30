@@ -7,7 +7,6 @@ Entry point of the command interpreter
 import cmd
 from models import storage
 from models.base_model import BaseModel
-from models.user import User
 import json
 import shlex
 
