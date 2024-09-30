@@ -32,3 +32,18 @@ class FileStorage:
                     if cls == 'User':
                         from models.user import User
                         self.__objects[key] = User(**val)
+                    if cls == 'City':
+                        from models.city import City
+                        self.__objects[key] = City(**val)
+                    if cls == 'State':
+                        from models.state import State
+                        self.__objects[key] = State(**val)
+                    if cls == 'Amenity':
+                        from models.amenity import Amenity
+                        self.__objects[key] = Amenity(**val)
+                    if cls == 'Place':
+                        from models.place import Place
+                        self.__objects[key] = Place(**val)
+                    if cls == 'Review':
+                        from models.review import Review
+                        self.__objects[key] = Review(**val)
