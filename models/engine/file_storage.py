@@ -1,10 +1,27 @@
 #!/usr/bin/python3
-"""File Storage Class"""
+"""
+File Storage Class
+
+all - returns the dictionary __objects
+
+new - puts new object in __objects with key <obj class name>.id (example BaseModel.1234 for object with id=1234)
+
+save - serializes __objects to JSON file (path: __file_path)
+
+reload - deserializes JSON file to __objects if file exists, otherwise does nothing
+"""
 import json
 import os
 
 
 class FileStorage:
+    """
+    initialize filestorage
+    
+    __file_path - path to JSON file
+    
+    __objects - empty dictionary
+    """
     __file_path = "file.json"
     __objects = {}
     
