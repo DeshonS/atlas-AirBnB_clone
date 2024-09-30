@@ -2,7 +2,6 @@
 """File Storage Class"""
 import json
 import os
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -25,6 +24,7 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as file:
                 obj_dict = json.load(file)
+                from models.base_model import BaseModel
                 for key, val in obj_dict.items():
                     cls = val['__class__']
                     if cls == 'BaseModel':
