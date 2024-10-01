@@ -131,7 +131,7 @@ class HBNBCommand(cmd.Cmd):
                 ob_name = value.__class__.__name__
                 if ob_name == args[0]:
                     id = key.split('.')[1]
-                    list_instances += ["{} {}".format(id, value.__str__())]
+                    list_instances += ["[{}] {}".format(id, value.__str__())]
             print(list_instances)
 
     def do_update(self, arg):
