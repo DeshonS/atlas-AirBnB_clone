@@ -128,9 +128,11 @@ class HBNBCommand(cmd.Cmd):
             all_objs = storage.all()
             list_instances = []
             for key, value in all_objs.items():
-                ob_name = value.__class__.__name__
-                if ob_name == args[0]:
-                    list_instances += [value.__str__()]
+                if key.startswith(arg):
+                    list_instances = BaseModel.__str__(value)
+                else:
+                    for value in all_objs.values():
+                        list_instances = BaseModel.__str__(value)
             print(list_instances)
 
     def do_update(self, arg):
