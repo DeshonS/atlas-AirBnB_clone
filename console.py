@@ -129,10 +129,10 @@ class HBNBCommand(cmd.Cmd):
             list_instances = []
             for key, value in all_objs.items():
                 if key.startswith(arg):
-                    return BaseModel.__str__(value)
+                    list_instances = BaseModel.__str__(value)
                 else:
                     for value in all_objs.values():
-                        return BaseModel.__str__(value)
+                        list_instances = BaseModel.__str__(value)
             print(list_instances)
 
     def do_update(self, arg):
