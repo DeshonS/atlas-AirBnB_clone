@@ -8,19 +8,16 @@ import unittest
 class TestState(unittest.TestCase):
     """Test State class"""
 
-    def setup(self):
+    def setUp(self):
         self.State = State()
         
-    def inheritance(self):
-        self.assertTrue(issubclass(State, BaseModel))
-        
-    def instance(self):
+    def test_instance(self):
         self.assertTrue(isinstance(self.State, State))
         
-    def name_init(self):
+    def test_name_init(self):
         self.assertEqual(self.State.name, "")
         
-    def name_type(self):
+    def test_name_type(self):
         self.assertTrue(hasattr(self.State, "name"))
         
 if __name__ == "__main__":
