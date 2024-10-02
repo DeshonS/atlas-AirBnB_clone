@@ -12,13 +12,6 @@ reload - deserializes JSON file to __objects if file exists, otherwise does noth
 """
 import json
 import os
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
 
 
 class FileStorage:
@@ -45,6 +38,13 @@ class FileStorage:
             json.dump(obj_dict, file)
 
     def reload(self):
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
         if os.path.exists(self.__file_path) and os.path.getsize(self.__file_path) > 0:
             try:
                 with open(self.__file_path, 'r') as file:
