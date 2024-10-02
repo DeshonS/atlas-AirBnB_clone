@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 import os
 from models import storage
 from models.engine.file_storage import FileStorage
-import datetime
+from datetime import datetime
 
 
 class BaseModelTests(unittest.TestCase):
@@ -27,8 +27,9 @@ class BaseModelTests(unittest.TestCase):
         self.assertEqual(self.my_model.id, my_model_json['id'])
 
     def testSave(self):
-        """ Checks if save method updates the public instance instance
-        attribute updated_at """
+        """
+        checks if save method updates the public instance attribute updated_at
+        """
         self.my_model.first_name = "First"
         self.my_model.save()
 
