@@ -46,7 +46,7 @@ class FileStorage:
         from models.amenity import Amenity
         from models.place import Place
         from models.review import Review
-        if os.path.exists(self.__file_path)
+        if os.path.exists(self.__file_path):
             try:
                 with open(self.__file_path, 'r') as file:
                     obj_dict = json.load(file)
