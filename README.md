@@ -1,6 +1,6 @@
 # AirBnB Clone Project - Console
 
-The AirBnB console is a command interpreter designed to handle objects for the remainder of the airBnB project
+The AirBnB console is a command interpreter designed to handle objects for the remainder of the airBnB project. Going foward we will use this to manage the objects for the remaining parts of the project
 
 ## Usage
 
