@@ -6,6 +6,7 @@ from models.engine.file_storage import FileStorage
 from models import storage
 import os
 import json
+import copy
 
 
 class FileStorageTests(unittest.TestCase):
@@ -67,16 +68,20 @@ class FileStorageTests(unittest.TestCase):
         self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
         self.assertEqual(storage.all(), storage._FileStorage__objects)
 
-    def testreload(self):
-        """test if reload """
+    def test_reload(self):
+        """test if reload works correctly"""
         self.my_model.save()
-        self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
-        dobj = storage.all()
+        self.assertTrue(os.path.exists(storage._FileStorage__file_path))
+    
+        dobj = storage.all().copy()
         FileStorage._FileStorage__objects = {}
+    
         self.assertNotEqual(dobj, FileStorage._FileStorage__objects)
+    
         storage.reload()
-        for key, value in storage.all().items():
-            self.assertEqual(dobj[key].to_dict(), value.to_dict())
+
+    for key, value in storage.all().items():
+        self.assertEqual(dobj[key].to_dict(), value.to_dict())
 
     def testSaveSelf(self):
         """ Check save self """
