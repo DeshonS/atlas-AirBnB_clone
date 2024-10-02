@@ -15,6 +15,7 @@ import uuid
 from datetime import datetime
 from models import storage
 
+
 class BaseModel():
     def __init__(self, *args, **kwargs):
         if kwargs:
@@ -28,7 +29,7 @@ class BaseModel():
             self.created_at = datetime.now()
             self.updated_at = self.created_at
             storage.new(self)
-        
+
     def __str__(self):
         """Returns a string representation of an instance"""
         return "[{}] ({}) {}".format(self.__class__.__name__, 
@@ -38,7 +39,7 @@ class BaseModel():
         """Saves the instance and updates updated_at attribute"""
         self.updated_at = datetime.now()
         storage.save()
-        
+
     def to_dict(self):
         """converts an instance to a dictionary"""
         instance_dict = self.__dict__.copy()

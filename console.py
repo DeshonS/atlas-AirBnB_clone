@@ -114,7 +114,9 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """ Prints string represention of all instances of a given class """
+        """
+        Prints string represention of all instances of a given class
+        """
 
         if not arg:
             print("** class name missing **")
