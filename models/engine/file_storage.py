@@ -4,11 +4,11 @@ File Storage Class
 
 all - returns the dictionary __objects
 
-new - puts new object in __objects with key <obj class name>.id (example BaseModel.1234 for object with id=1234)
+new - puts new object in __objects with key <obj class name>.id
 
 save - serializes __objects to JSON file (path: __file_path)
 
-reload - deserializes JSON file to __objects if file exists, otherwise does nothing
+reload - deserializes JSON file to __objects if file exists
 """
 import json
 import os
@@ -17,9 +17,9 @@ import os
 class FileStorage:
     """
     initialize filestorage
-    
+
     __file_path - path to JSON file
-    
+
     __objects - empty dictionary
     """
     __file_path = "file.json"
@@ -34,7 +34,8 @@ class FileStorage:
 
     def save(self):
         with open(self.__file_path, 'w') as file:
-            obj_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
+            obj_dict = {key: obj.to_dict() for
+                        key, obj in self.__objects.items()}
             json.dump(obj_dict, file)
 
     def reload(self):
@@ -45,7 +46,7 @@ class FileStorage:
         from models.amenity import Amenity
         from models.place import Place
         from models.review import Review
-        if os.path.exists(self.__file_path) and os.path.getsize(self.__file_path) > 0:
+        if os.path.exists(self.__file_path)
             try:
                 with open(self.__file_path, 'r') as file:
                     obj_dict = json.load(file)
